@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            width: 16px;
+            height: 16px;
+            margin: 2px;
+            transition: 1s ease;
+            background-color: #1d1d1d;
+        }
+
+        .item:hover {
+            transition: 0s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+<script>
+    var box = document.querySelector('.box');
+
+    var total = 500;
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+    for (var i = 0; i < total; i++) {
+        let item = document.createElement('div');
+        item.classList.add('item');
+
+        item.addEventListener('mouseover', function () {
+            var index = Math.floor(Math.random() * colors.length);
+            item.style.backgroundColor = colors[index];
+        })
+
+        item.addEventListener('mouseleave', function () {
+            item.style.backgroundColor = '#1d1d1d';
+        })
+
+        box.appendChild(item);
+    }
+
+</script>
+
+</html>
